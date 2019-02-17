@@ -1,0 +1,159 @@
+<% include partials/headerBackOffice %>
+
+
+
+
+
+<div class="compose">
+  <div class="">
+    <h1> Backoffice Laily Barelds Dressuur</h1>
+  </div>
+
+
+  <!-- Agenda punten toevoegen -->
+
+
+  <h2>Agenda berichten</h2>
+  <hr>
+
+
+  <table>
+
+    <div class="container">
+
+
+
+      <form class="postCompose" action="/compose" method="post">
+        <div class="form-group">
+          <label for="agendaTitle">Titel</label>
+          <input class="form-control" type="text" name="agendaTitle">
+
+        </div>
+        <div class="form-group ">
+          <label for="agendaDatum">Datum</label>
+          <input class="form-control" type="date" name="agendaDatum">
+
+        </div>
+        <div class="form-group">
+
+          <label for="agendaInput">Bericht</label>
+          <textarea class="form-control" type="text" name="agendaInput" id=" exampleFormControlTextarea1" rows="3"></textarea>
+
+
+        </div>
+
+        <button class="btn btn-primary" type="submit" name="button">publish</button>
+
+      </form>
+
+    </div>
+
+  </table>
+
+
+  <h2>Nieuws berichten</h2>
+  <hr>
+
+  <!-- nieuws berichten toevoegen -->
+
+  <table>
+
+    <div class="container">
+
+      <form class="postCompose" action="/compose2" method="post">
+
+        <div class="form-group ">
+          <label for="nieuwsBerichtTitel">Nieuws bericht titel</label>
+          <input class="form-control" type="text" name="nieuwsTitle">
+
+        </div>
+        <div class="form-group">
+          <label for="nieuwsBerichtDatum">Datum</label>
+          <input class="form-control" type="date" name="nieuwsDatum">
+
+        </div>
+
+        <div class="form-group">
+          <label for="nieuwsInput">Nieuws bericht</label>
+
+          <textarea class="form-control" type="text" name="nieuwsInput" id=" exampleFormControlTextarea2" rows="3"></textarea>
+
+        </div>
+
+        <div class="form-group ">
+          <label for="nieuwsBerichtTitel">link naar afbeelding</label>
+          <input class="form-control" type="text" name="nieuwsAfbeelding">
+
+        </div>
+
+
+
+        <button class="btn btn-primary" type="submit" name="button">publish</button>
+
+      </form>
+
+
+    </div>
+
+  </table>
+
+
+
+  <h4><a id="targetAgenda"> Agenda punten</a> </h4>
+  <% agendas.forEach(function(agenda) { %>
+  <hr>
+  <form class="" action="/composeDeleteAgenda" method="post">
+    <h5>
+      <%=agenda.titel%>
+
+      </h1>
+      <h6>
+        <%=agenda.datum%>
+        </h2>
+        <p class="inhoudCompose">
+          <%=agenda.inhoud%>
+        </p>
+
+
+
+        <input type="hidden" name="agendaId" value="<%=agenda.id%>">
+        <div class="divDelete">
+          <button class="btn btn-primary " type="submit">Delete</button>
+        </div>
+
+  </form>
+
+
+
+  <%}) %>
+
+  <h4><a id="targetNieuws">Nieuws berichten</a> </h4>
+
+  <% nieuwsberichts.forEach(function(nieuws) { %>
+  <hr>
+  <form action="/composeDeleteNieuws" method="post">
+
+
+    <h5>
+      <%=nieuws.titel%>
+      </h1>
+      <h6>
+        <%=nieuws.datum%>
+        </h2>
+        <p class="inhoudCompose">
+          <%=nieuws.inhoud%>
+        </p>
+        <input type="hidden" name="nieuwsId" value="<%=nieuws.id%>">
+        <div class="divDelete">
+          <button class="btn btn-primary" type="submit">Delete</button>
+        </div>
+
+  </form>
+
+
+  <%}) %>
+
+
+
+
+  <% include partials/footerBackOffice %>

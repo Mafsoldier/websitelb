@@ -1,0 +1,76 @@
+<% include partials/header %>
+
+
+<div class="flex-container">
+
+<%var i=0;%>
+<% nieuwsberichts.forEach(function(nieuws) { %>
+
+  <div class="container nieuwsBerichten ">
+    <div class="row">
+
+
+  <% if (i % 2 === 0) { %>
+
+    <div class="col-sm-6">
+
+      <div class="item">
+        <h4>
+          <%=nieuws.titel%>
+          </h4>
+          <h5>
+        <%=nieuws.datum%>
+          </h5>
+            <p class="inhoudCompose">
+              <%=nieuws.inhoud%>
+            </p>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+<img class="imagesNieuws center-block" src="<%=nieuws.afbeelding%>" alt="">
+    </div>
+
+            <%= console.log(i) %>
+
+  <% } else { %>
+
+    <div class="col-sm-6">
+<img class="imagesNieuws center-block" src="<%=nieuws.afbeelding%>" alt="">
+    </div>
+
+    <div class="col-sm-6">
+
+      <div class="item">
+        <h4>
+          <%=nieuws.titel%>
+          </h4>
+          <h5>
+        <%=nieuws.datum%>
+          </h5>
+            <p class="inhoudCompose">
+              <%=nieuws.inhoud%>
+            </p>
+      </div>
+    </div>
+
+  <%  } %>
+
+
+
+
+
+
+    </div>
+
+  </div>
+
+
+
+  <% i++ }); %>
+    </div>
+
+
+
+
+<% include partials/footer %>

@@ -1,0 +1,20 @@
+<% include partials/header %>
+
+
+<h4> Agenda punten</h4>
+<% agendas.forEach(function(agenda) { %>
+<hr>
+<h5>
+  <%=agenda.titel%>
+  </h1>
+  <h6>
+    <%=agenda.datum%>
+    </h2>
+    <p class="inhoudCompose">
+      <%=agenda.inhoud%>
+    </p>
+
+    <%}) %>
+
+
+<% include partials/footer %>
